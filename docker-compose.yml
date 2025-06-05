@@ -4,7 +4,7 @@ services:
   node-app:
     build: ./node_app
     ports:
-      - "3000:3000"
+      - "3005:3005"
     volumes:
       - ./node_app:/app
     depends_on:
