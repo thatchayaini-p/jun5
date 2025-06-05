@@ -1,14 +1,24 @@
-version: '3.7'
+version: '3.8'
 
 services:
-  environment:
-    container_name: environment
-    build:
-      context: .
-      dockerfile: dockerfile
+  node-app:
+    build: ./node_app
     ports:
-      - 3005:3005
-    stdin_open: true
+      - "3000:3000"
+    volumes:
+      - ./node_app:/app
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
     environment:
-      - CHOKIDAR_USEPOLLING=true
-    command: node app.js
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: db_name
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
