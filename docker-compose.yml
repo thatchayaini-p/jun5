@@ -15,8 +15,8 @@ services:
     ports:
       - "3305:3305"
     environment:
-      MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: db_name
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mysqldb
     volumes:
       - mysql_data:/var/lib/mysql
 
