@@ -13,7 +13,7 @@ services:
   mysql:
     image: mysql:latest
     ports:
-      - "3306:3306"
+      - "3305:3305"
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: db_name
